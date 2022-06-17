@@ -5,6 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CarController {
+
+	@GetMapping("/")
+	public String indexPage() {
+		return "index";
+	}
 	
 	@GetMapping("/create")
 	public String createCar() {
