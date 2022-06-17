@@ -12,4 +12,10 @@ public class CarController {
 		return "create";
 	}
 
+	@GetMapping("/update")
+	public String editCar() {
+		
+		
+		return "update";
+	}
 }
