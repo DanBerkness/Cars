@@ -17,11 +17,21 @@
                     <th>color</th>
                     <th>year</th>
                     <th>price</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
 
                     <tr th:each="cars : ${list}">
+                    
+                   <td th:text="${cars.id}"></td>
+                   <td th:text="${cars.motorSize}"></td>
+                   <td th:text="${cars.modelName}"></td>
+                   <td th:text="${cars.wheelSize}"></td>
+                   <td th:text="${cars.transmission}"></td>
+                   <td th:text="${cars.color}"></td>
+                   <td th:text="${cars.year}"></td>
+                   <td th:text="${cars.price}"></td>
 
                     </tr>   
 

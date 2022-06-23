@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.shared.cars.domain.Car;
+
 @Controller
 public class CarController {
 
@@ -28,22 +30,20 @@ public class CarController {
 		
 		return "update";
 	}
+	
 	@GetMapping("/cars")
-	public String allCars() {
-		
-		return "cars";
-	}
-	@RequestMapping(value = "/showTableWithValues", method = RequestMethod.GET)
-    public String showTableWithValues(Model model) 
+    public String allCars(Model model) 
     {
-        //list with Persons
-        ArrayList<Cars>  carsList= 
-                new ArrayList<Cars>();
-
-        carsList=  this.getListOfCars();
+        //list with Cars
+        ArrayList<Car>  carsList = new ArrayList<>();
+        Car car = new Car();
+        car.setColor("red");
+        car.setId(36784567856785678L);
+        car.setModelName("Corvette");
+        carsList.add(car);
 
         model.addAttribute("list", carsList);
 
-        return "showTableWithValues";
+        return "cars";
     }
 }
