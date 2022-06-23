@@ -23,4 +23,9 @@ public class CarController {
 		
 		return "update";
 	}
+	@GetMapping("/cars")
+	public String allCars() {
+		
+		return "cars";
+	}
 }
