@@ -5,6 +5,6 @@
     justify-content: center;
     align-items: center;
 }
-td {
-	border: 1px;
+table tr td  {
+	border: 1px solid;
 }
