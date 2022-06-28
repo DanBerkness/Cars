@@ -15,7 +15,7 @@ public class Car {
 	private Integer year;
 	private BigDecimal price;
 	
-	
+	public Car() {};
 	
 	public Car(Long id, String motorSize, String modelName, Integer wheelSize, String transmission, String color,
 			Integer year, BigDecimal price) {
