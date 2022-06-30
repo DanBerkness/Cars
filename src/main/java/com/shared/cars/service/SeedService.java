@@ -1,9 +1,7 @@
 package com.shared.cars.service;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
@@ -11,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.shared.cars.domain.Car;
 
 @Service
-public class SeedService2 {
+public class SeedService {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		CarCreation();
@@ -33,29 +31,19 @@ public class SeedService2 {
 		Integer[] years = {2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022};
 		
 		
-		int numberOfMotorSizes = 2;
-		int numberOfModelNames = 16;
-		int numberOfWheelSize = 9;
-		int numberOfTransmissions = 2;
-		int numberOfColors = 8;
-		int numberOfYears = 6;
-		
-		
 		
 		
 		int i = 1;
 		while (i <= 10) {
-			String motorSize = motorSizes[random.nextInt(numberOfMotorSizes)];
-			String modelName = modelNames[random.nextInt(numberOfModelNames)];
-			Integer wheelSize = wheelSizes[random.nextInt(numberOfWheelSize)];
-			String transmission = transmissions[random.nextInt(numberOfTransmissions)];
-			String color = colors[random.nextInt(numberOfColors)];
-			Integer year = years[random.nextInt(numberOfYears)];
-			
-			System.out.println("Car: " + i +"\nMotor Size: " + motorSize +"\nModel Name: " + 
-								modelName + "\nWheel Size: " + wheelSize + 
-								"\nTransmission: " + transmission + "\nColor: " + 
-								color + "\nYear: " + year + "\n");
+			String motorSize = motorSizes[random.nextInt(motorSizes.length - 1)];
+			String modelName = modelNames[random.nextInt(modelNames.length - 1)];
+			Integer wheelSize = wheelSizes[random.nextInt(wheelSizes.length - 1)];
+			String transmission = transmissions[random.nextInt(transmissions.length - 1)];
+			String color = colors[random.nextInt(colors.length - 1)];
+			Integer year = years[random.nextInt(years.length - 1)];
+			Car car = new Car(0L, motorSize, modelName, wheelSize, transmission, color,
+					 year,  new BigDecimal(22));
+			System.out.println(car);
 			
 			i++;
 			
