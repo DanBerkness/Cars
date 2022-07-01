@@ -1,7 +1,8 @@
 package com.shared.cars.service;
 
-import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
@@ -10,14 +11,10 @@ import com.shared.cars.domain.Car;
 
 @Service
 public class SeedService {
-	public static void main(String[] args) throws FileNotFoundException {
-		
-		CarCreation();
-		
-
-	}
 	
-	private static void CarCreation() throws FileNotFoundException {
+	List<Car> cars = new ArrayList<>();
+	
+	public List<Car> carCreation()  {
 		Random random = new Random();
 		String[] motorSizes = {"Small", "Medium", "Large"};
 		String[] modelNames = {"Audi", "Lamborghini", "BMW", "Volkswagen",
@@ -41,13 +38,14 @@ public class SeedService {
 			String transmission = transmissions[random.nextInt(transmissions.length - 1)];
 			String color = colors[random.nextInt(colors.length - 1)];
 			Integer year = years[random.nextInt(years.length - 1)];
-			Car car = new Car(0L, motorSize, modelName, wheelSize, transmission, color,
-					 year,  new BigDecimal(22));
-			System.out.println(car);
+			cars.add(new Car(0L, motorSize, modelName, wheelSize, transmission, color,
+					 year,  new BigDecimal(22)));
+			
 			
 			i++;
 			
 		}
+		return cars;
 		
 		
 		
