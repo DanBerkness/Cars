@@ -21,10 +21,10 @@ private List<Car> cars = new ArrayList<>(100);
 	public CarRepository () {
 		super();
 		
-		System.out.println("johnny: " + seedService);
 	}
 	
 	public List<Car> findAll () {
+		System.out.println("johnny: " + seedService);
 		return cars;
 	}
 }
