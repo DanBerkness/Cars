@@ -12,16 +12,10 @@ import com.shared.cars.domain.Car;
 import com.shared.cars.repository.CarRepository;
 
 @Controller
-<<<<<<< HEAD
 public class CarController {
 	
 	@Autowired
 	private CarRepository carRepository;
-=======
-public class CarController{
-	@Autowired 
-	CarRepository carRepository;
->>>>>>> bfdea4620a58d68f0a45cd84eeda4fc10edc9f53
 
 	@GetMapping("/")
 	public String indexPage() {
@@ -42,24 +36,10 @@ public class CarController{
 	}
 	
 	@GetMapping("/cars")
-<<<<<<< HEAD
     public String allCars(Model model) {
         //list with Cars
         List<Car>  carsList = carRepository.findAll();
        
-=======
-    public String allCars(Model model) 
-    { 
-        //list with Cars
-        ArrayList<Car>  carsList = new ArrayList<>();
-        Car car = new Car();
-        car.setColor("red");
-        car.setId(36784567856785678L);
-        car.setModelName("Corvette");
-        carsList.add(car);
-        carRepository.findAll();
-
->>>>>>> bfdea4620a58d68f0a45cd84eeda4fc10edc9f53
         model.addAttribute("list", carsList);
 
         return "cars";
