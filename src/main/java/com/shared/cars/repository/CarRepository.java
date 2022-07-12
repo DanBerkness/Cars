@@ -17,14 +17,10 @@ private List<Car> cars = new ArrayList<>(100);
 	@Autowired
 	private SeedService seedService;
 	
-	
-	public CarRepository () {
-		super();
-		
-		System.out.println("johnny: " + seedService);
-	}
-	
 	public List<Car> findAll () {
+		if (cars.size() == 0) {
+			cars.addAll(seedService.carCreation());
+		}
 		return cars;
 	}
 }

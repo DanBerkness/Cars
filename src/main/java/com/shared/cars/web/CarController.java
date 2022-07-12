@@ -1,17 +1,21 @@
 package com.shared.cars.web;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shared.cars.domain.Car;
+import com.shared.cars.repository.CarRepository;
 
 @Controller
 public class CarController {
+	
+	@Autowired
+	private CarRepository carRepository;
 
 	@GetMapping("/")
 	public String indexPage() {
@@ -32,16 +36,10 @@ public class CarController {
 	}
 	
 	@GetMapping("/cars")
-    public String allCars(Model model) 
-    {
+    public String allCars(Model model) {
         //list with Cars
-        ArrayList<Car>  carsList = new ArrayList<>();
-        Car car = new Car();
-        car.setColor("red");
-        car.setId(36784567856785678L);
-        car.setModelName("Corvette");
-        carsList.add(car);
-
+        List<Car>  carsList = carRepository.findAll();
+       
         model.addAttribute("list", carsList);
 
         return "cars";
