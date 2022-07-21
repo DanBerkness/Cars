@@ -41,7 +41,7 @@ public class CarController {
         List<Car>  carsList = carRepository.findAll();
        
         model.addAttribute("list", carsList);
-
+        System.out.println("hi");
         return "cars";
     }
 }
