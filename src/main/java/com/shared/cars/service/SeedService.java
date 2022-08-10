@@ -27,7 +27,7 @@ public class SeedService {
 		String[] transmissions = {"automatic", "manual", "hybrid"};
 		String[] colors = {"Yellow", "Red", "Blue", "Orange", "Purple", "White", "Black", "Grey"};
 		Integer[] years = {2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022};
-		
+		BigDecimal[] prices = {new BigDecimal(29845), new BigDecimal(58630), new BigDecimal(75392)};
 		
 		
 		
@@ -41,11 +41,11 @@ public class SeedService {
 			String transmission = transmissions[random.nextInt(transmissions.length - 1)];
 			String color = colors[random.nextInt(colors.length - 1)];
 			Integer year = years[random.nextInt(years.length - 1)];
+			BigDecimal price = prices[random.nextInt(prices.length - 1)];
 			cars.add(new Car(id, motorSize, modelName, wheelSize, transmission, color,
-					 year,  new BigDecimal(22)));
+					 year, price));
 			
 			System.out.println(id);
-			
 			
 			i++;
 			
