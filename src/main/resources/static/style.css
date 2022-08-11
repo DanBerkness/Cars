@@ -10,6 +10,9 @@ td {
 }
 
 body {
-	
-	background-color: green;
+	color: black;
+	background-color: rgb(254, 255, 255);
+}
+.table-striped {
+	border: 1px solid black;
 }
