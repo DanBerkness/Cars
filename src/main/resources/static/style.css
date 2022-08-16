@@ -13,9 +13,6 @@ body {
 	color: black;
 	background-color: rgb(254, 255, 255);
 }
-.table-striped {
-	border: 1px solid black;
-}
-th, td{
+.table-striped, th, td {
 	border: 1px solid black;
 }
