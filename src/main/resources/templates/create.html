@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Hello, world!</title>
-  <link rel = "stylesheet" type = "text/css" href="style.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
-</head>
-<body>
-  
-  <div class = "form">
-  	<form action="" method="post" class = "form">
-        <p>Hello, Cars!</p>
-        <div> ModelName <input/></div>
-        <div> WheelSize <input/></div>
-        <div> TransmissionType <input/></div> 
-        <div> Color <input/></div> 
-        <div> Year <input/></div> 
-        <div> Price <input/></div>
-        <button >Submit </button>
-   </form>
-  </div>
-</body>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+	<head>
+	  <title>Hello, world!</title>
+	  <link rel = "stylesheet" type = "text/css" href="style.css">
+	  <meta charset="UTF-8" />
+	  <meta name="viewport" content="width=device-width,initial-scale=1" />
+	  <meta name="description" content="" />
+	</head>
+	
+	<body>
+  		<div class = "form">
+		  	<form action="" method="post" class = "form">
+	    	    <p>Hello, Cars!</p>
+	        	<div> ModelName <input type="text" th:field="${car.modelName}"/></div>
+	        	<div> MotorSize <input type="text" th:field="${car.motorSize}"/> </div>
+	        	<div> WheelSize <input type="text" th:field="${car.wheelSize}"/></div>
+	        	<div> TransmissionType <input type="text" th:field="${car.transmission}" /></div> 
+	        	<div> Color <input type="text" th:field="${car.color}"/></div> 
+	        	<div> Year <input type="text" th:field=${car.year}/></div> 
+	        	<div> Price <input type="text" th:field="${car.price}"/></div>
+	        	<button >Submit</button>
+	   		</form>
+  		</div>
+	</body>
+	
 </html>

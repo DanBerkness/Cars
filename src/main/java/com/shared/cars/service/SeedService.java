@@ -31,6 +31,7 @@ public class SeedService {
 		
 		
 		int i = 1;
+		Long id = (long) 1;
 		while (i <= 10) {
 			String motorSize = motorSizes[random.nextInt(motorSizes.length - 1)];
 			String modelName = modelNames[random.nextInt(modelNames.length - 1)];
@@ -38,7 +39,7 @@ public class SeedService {
 			String transmission = transmissions[random.nextInt(transmissions.length - 1)];
 			String color = colors[random.nextInt(colors.length - 1)];
 			Integer year = years[random.nextInt(years.length - 1)];
-			cars.add(new Car(0L, motorSize, modelName, wheelSize, transmission, color,
+			cars.add(new Car(id++, motorSize, modelName, wheelSize, transmission, color,
 					 year,  new BigDecimal(22)));
 			
 			
