@@ -29,7 +29,7 @@ private List<Car> cars = new ArrayList<>(100);
 		if (cars.size() == 0) {// I copied pasted the code above since in order to crea the 10 deafults you need to go to /cars page first
 								//so if i save a car before loading the car page it wouldnt save create the default 10
 			cars.addAll(seedService.carCreation());
-		}
+		}//test
 		Long id = (long) cars.size();
 		car.setId(++id);
 		cars.add(car);
