@@ -39,5 +39,7 @@
                 </tbody>
 </table>
 </body>
-
+	<div th:each="car : ${list}" >
+		<a th:href="@{/car/{carId}(carId=${car.id})}" th:text=${car.id}> </a>
+	</div>
 </html>

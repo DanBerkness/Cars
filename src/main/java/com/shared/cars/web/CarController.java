@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.shared.cars.domain.Car;
@@ -46,11 +47,25 @@ public class CarController {
 	
 	@GetMapping("/cars")
     public String allCars(Model model) {
+		
         //list with Cars
         List<Car>  carsList = carService.findAll();
-       
         model.addAttribute("list", carsList);
 
         return "cars";
     }
+	@GetMapping("/car/{carId}")
+	public String viewCar(@PathVariable Long carId, ModelMap model) {
+		Car car = carService.findCarById(carId);
+		System.out.println(car.getMotorSize());
+		model.put("car", car);
+		return "car";
+	}
+	@PostMapping("/car/{carId}")
+	public String updateCar(Car car) {
+		System.out.println(car.getColor());
+		carService.save(car);
+		return "redirect:/cars";
+	}
+	
 }
