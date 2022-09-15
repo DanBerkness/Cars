@@ -63,5 +63,9 @@ private Map<Long, Car> carMap = new HashMap<>();
 		}
 		return foundCar;
 	}
+
+	public void delete(Car car) {
+		System.out.println("Car: " + car.getModelName() + " would be deleted.");
+	}
 }
 
