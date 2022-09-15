@@ -27,8 +27,8 @@ private List<Car> cars = new ArrayList<>(100);
 
 	public void save(Car car) {
 		if(car.getId() != null) {
-			int id = car.getId().intValue();
-			Car carFound = cars.get(id);
+			int id = car.getId().intValue();;
+			Car carFound = cars.get(--id);
 			carFound.setColor(car.getColor());
 			carFound.setModelName(car.getModelName());
 			carFound.setMotorSize(car.getMotorSize());

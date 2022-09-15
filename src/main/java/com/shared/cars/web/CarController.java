@@ -57,13 +57,11 @@ public class CarController {
 	@GetMapping("/car/{carId}")
 	public String viewCar(@PathVariable Long carId, ModelMap model) {
 		Car car = carService.findCarById(carId);
-		System.out.println(car.getMotorSize());
 		model.put("car", car);
 		return "car";
 	}
 	@PostMapping("/car/{carId}")
 	public String updateCar(Car car) {
-		System.out.println(car.getColor());
 		carService.save(car);
 		return "redirect:/cars";
 	}
