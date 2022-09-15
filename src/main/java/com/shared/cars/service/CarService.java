@@ -22,6 +22,10 @@ public class CarService {
 		
 		carRepo.save(car);
 	}
+
+	public Car findCarById(Long carId) {
+		return carRepo.findCarById(carId);
+	}
 	
 	
 }
