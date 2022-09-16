@@ -16,3 +16,6 @@ body {
 .table-striped, th, td {
 	border: 1px solid black;
 }
+.LBL {
+	padding: 0 20px;
+}
