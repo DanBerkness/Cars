@@ -16,7 +16,7 @@ import com.shared.cars.service.SeedService;
 @Repository
 public class CarRepository {
 private List<Car> cars = new ArrayList<>(100);
-private Map<Long, Car> carMap = new HashMap<>();
+
 	
 
 	@Autowired

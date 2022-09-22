@@ -10,9 +10,8 @@
 <table class="table-striped">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>motorSize</th>
-                    <th>modelName</th>
+                    <th>ModelName</th>
+                    <th>MotorSize</th>
                     <th>wheelSize</th>
                     <th>transmission</th>
                     <th>color</th>
@@ -25,9 +24,8 @@
 
                     <tr th:each="cars : ${list}">
                     
-                   <td th:text="${cars.id}"></td>
-                   <td th:text="${cars.motorSize}"></td>
-                   <td th:text="${cars.modelName}"></td>
+                   <td> <a th:href="@{/car/{carId}(carId=${cars.id})}" >[[${cars.modelName}]] </a> </td>
+                   <td th:text="${cars.motorSize}" > </td>
                    <td th:text="${cars.wheelSize}"></td>
                    <td th:text="${cars.transmission}"></td>
                    <td th:text="${cars.color}"></td>
@@ -40,7 +38,4 @@
 </table>
 	<a href="/" >Home</a>
 </body>
-	<div th:each="car : ${list}" >
-		<a th:href="@{/car/{carId}(carId=${car.id})}" th:text=${car.id}> </a>
-	</div>
 </html>
