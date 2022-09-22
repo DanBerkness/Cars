@@ -63,5 +63,9 @@ private List<Car> cars = new ArrayList<>(100);
 		}
 		return foundCar;
 	}
+
+	public void delete(Car car) {
+		System.out.println("Car: " + car.getModelName() + " would be deleted.");
+	}
 }
 
