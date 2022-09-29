@@ -1,23 +1,16 @@
 package com.shared.cars.repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import com.shared.cars.domain.Car;
 import com.shared.cars.service.SeedService;
 
 @Repository
 public class CarRepository {
 private List<Car> cars = new ArrayList<>(100);
-
-	
 
 	@Autowired
 	private SeedService seedService;
@@ -32,6 +25,7 @@ private List<Car> cars = new ArrayList<>(100);
 	public void save(Car car) {
 		if(car.getId() != null) {
 			int id = car.getId().intValue();;
+//			cars.set(--id, car);
 			Car carFound = cars.get(--id);
 			carFound.setColor(car.getColor());
 			carFound.setModelName(car.getModelName());
@@ -62,6 +56,10 @@ private List<Car> cars = new ArrayList<>(100);
 			}
 		}
 		return foundCar;
+	}
+
+	public void deleteById(Long carId) {
+		cars.remove(carId.intValue() - 1);
 	}
 }
 

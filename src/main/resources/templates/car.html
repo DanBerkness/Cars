@@ -20,6 +20,9 @@
 	       	<div> Price <input type="text" th:field="${car.price}"/></div>
 	       	<button >Submit</button>
 		</form>
+		<form th:action="@{/car/{carId}/delete(carId=${car.id})}" method="post">
+			<button>Delete</button>
+		</form>
 		</div>
 	</body>
 	

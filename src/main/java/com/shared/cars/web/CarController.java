@@ -65,5 +65,11 @@ public class CarController {
 		carService.save(car);
 		return "redirect:/cars";
 	}
+	@PostMapping("/car/{carId}/delete")
+	public String deleteCar(@PathVariable Long carId) {
+		carService.delete(carId);
+		return "redirect:/cars";
+	}
+	
 	
 }
