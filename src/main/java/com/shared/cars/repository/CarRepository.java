@@ -15,16 +15,16 @@ import com.shared.cars.service.SeedService;
 
 @Repository
 public class CarRepository {
-private List<Car> cars = new ArrayList<>(100);
+private Map<Long,Car> cars = new HashMap<>();
 
 	
 
 	@Autowired
 	private SeedService seedService;
 	
-	public List<Car> findAll () {
+	public Map<Long, Car> findAll () {
 		if (cars.size() == 0) {
-			cars.addAll(seedService.carCreation());
+			cars.putAll(seedService.carCreation());
 		}
 		return cars;
 	}
@@ -65,7 +65,9 @@ private List<Car> cars = new ArrayList<>(100);
 	}
 
 	public void delete(Car car) {
-		System.out.println("Car: " + car.getModelName() + " would be deleted.");
+		// TODO Auto-generated method stub
+		
 	}
+
 }
 

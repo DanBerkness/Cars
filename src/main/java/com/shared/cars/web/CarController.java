@@ -1,6 +1,7 @@
 package com.shared.cars.web;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,6 @@ public class CarController {
 
 	@GetMapping("/update")
 	public String editCar() {
-		
-		
 		return "update";
 	}
 	
@@ -48,7 +47,7 @@ public class CarController {
     public String allCars(Model model) {
 		
         //list with Cars
-        List<Car>  carsList = carService.findAll();
+        Map<Long, Car>  carsList = carService.findAll();
         model.addAttribute("list", carsList);
 
         return "cars";
