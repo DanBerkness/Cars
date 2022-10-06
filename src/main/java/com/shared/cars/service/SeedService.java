@@ -3,6 +3,7 @@ package com.shared.cars.service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -14,7 +15,7 @@ import com.shared.cars.domain.Car;
 @Service
 public class SeedService {
 	
-	Map<Long, Car> cars = new HashMap<>();
+	Map<Long, Car> cars = new LinkedHashMap<>();
 	
 	public Map<Long, Car> carCreation()  {
 		

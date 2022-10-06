@@ -1,6 +1,5 @@
 package com.shared.cars.web;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +44,9 @@ public class CarController {
 	
 	@GetMapping("/cars")
     public String allCars(Model model) {
-		
         //list with Cars
         Map<Long, Car>  carsList = carService.findAll();
         model.addAttribute("list", carsList);
-
         return "cars";
     }
 	@GetMapping("/car/{carId}")

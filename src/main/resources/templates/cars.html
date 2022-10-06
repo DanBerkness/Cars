@@ -17,21 +17,21 @@
                     <th>Color</th>
                     <th>Year</th>
                     <th>Price</th>
-                    
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
 
                     <tr th:each="cars : ${list}">
                     
-                   <td> <a th:href="@{/car/{carId}(carId=${cars.id})}" >[[${cars.modelName}]] </a> </td>
-                   <td th:text="${cars.motorSize}" > </td>
-                   <td th:text="${cars.wheelSize}"></td>
-                   <td th:text="${cars.transmission}"></td>
-                   <td th:text="${cars.color}"></td>
-                   <td th:text="${cars.year}"></td>
-                   <td th:text="${cars.price}"></td>
-					<td><button>Delete</button></td>
+                   <td> <a th:href="@{/car/{carId}(carId=${cars.value.id})}" >[[${cars.value.modelName}]] </a> </td>
+                   <td th:text="${cars.value.motorSize}" > </td>
+                   <td th:text="${cars.value.wheelSize}"></td>
+                   <td th:text="${cars.value.transmission}"></td>
+                   <td th:text="${cars.value.color}"></td>
+                   <td th:text="${cars.value.year}"></td>
+                   <td th:text="${cars.value.price}"></td>
+				   <td><button>Delete</button></td>
                     </tr>   
 
                 </tbody>

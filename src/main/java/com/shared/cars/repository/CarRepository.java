@@ -3,6 +3,7 @@ package com.shared.cars.repository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,9 +16,7 @@ import com.shared.cars.service.SeedService;
 
 @Repository
 public class CarRepository {
-private Map<Long,Car> cars = new HashMap<>();
-
-	
+private Map<Long,Car> cars = new LinkedHashMap<>();
 
 	@Autowired
 	private SeedService seedService;
@@ -31,33 +30,23 @@ private Map<Long,Car> cars = new HashMap<>();
 
 	public void save(Car car) {
 		if(car.getId() != null) {
-			int id = car.getId().intValue();;
-			Car carFound = cars.get(--id);
-			carFound.setColor(car.getColor());
-			carFound.setModelName(car.getModelName());
-			carFound.setMotorSize(car.getMotorSize());
-			carFound.setPrice(car.getPrice());
-			carFound.setTransmission(car.getTransmission());
-			carFound.setWheelSize(car.getWheelSize());
-			carFound.setYear(car.getYear());
-			cars.remove(id);
-			cars.add(id, carFound);
+			cars.put(car.getId(), car);
 		}else {
 			if (cars.size() == 0) {// I copied pasted the code above since in order to crea the 10 deafults you need to go to /cars page first
 				//so if i save a car before loading the car page it wouldnt save create the default 10
-				cars.addAll(seedService.carCreation());
+				cars.putAll(seedService.carCreation());
 			}//test
 			Long id = (long) cars.size();
 			car.setId(++id);
-			cars.add(car);
+			cars.put(id, car);
 		}
 	}
 
 	public Car findCarById(Long carId) {
 		Car foundCar = new Car();
-		for(Car car : cars) {
-			if(car.getId() == carId) {
-				foundCar = car;
+		for(Map.Entry<Long, Car> car : cars.entrySet()) {
+			if(car.getValue().getId() == carId) {
+				foundCar = car.getValue();
 				break;
 			}
 		}
@@ -65,7 +54,6 @@ private Map<Long,Car> cars = new HashMap<>();
 	}
 
 	public void delete(Car car) {
-		// TODO Auto-generated method stub
 		
 	}
 
