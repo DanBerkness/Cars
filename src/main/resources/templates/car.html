@@ -8,9 +8,7 @@
 		<div>
 		<h2>Updating Car</h2>
 		<form action="" method="post">
-			<div>
-				<div> ModelName <input type="text" th:field="${car.modelName}"/></div>
-			</div>
+			<div> ModelName <input type="text" th:field="${car.modelName}"/></div>
 			<div> <input type="hidden" th:field=${car.id}> </div>
 			<div> MotorSize <input type="text" th:field="${car.motorSize}"/> </div>
 	        <div> WheelSize <input type="text" th:field="${car.wheelSize}"/></div>
@@ -23,6 +21,7 @@
 	       	
 		</form>
 		</div>
+		
 	</body>
 	
 </html>
