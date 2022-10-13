@@ -54,7 +54,7 @@ private Map<Long,Car> cars = new LinkedHashMap<>();
 	}
 
 	public void delete(Car car) {
-		
+		cars.remove(car.getId());
 	}
 
 }

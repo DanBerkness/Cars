@@ -17,11 +17,19 @@
 	       	<div> Year <input type="text" th:field=${car.year}/></div> 
 	       	<div> Price <input type="text" th:field="${car.price}"/></div>
 	       	<button>Submit</button>
-			<button>Delete</button>
-	       	
+		</form>
+		<form th:action="@{/car/delete/{carId}(carId=${car.id})}" method="post">
+			<input type="hidden" th:field=${car.modelName}>
+			<input type="hidden" th:field=${car.id}>
+			<input type="hidden" th:field=${car.motorSize}>
+			<input type="hidden" th:field=${car.wheelSize}>
+			<input type="hidden" th:field=${car.transmission}>
+			<input type="hidden" th:field=${car.color}>
+			<input type="hidden" th:field=${car.year}>
+			<input type="hidden" th:field=${car.price}>
+			<input type="submit" value="Delete" >
 		</form>
 		</div>
-		
 	</body>
 	
 </html>
